@@ -1,0 +1,32 @@
+{% extends 'index.html'%} {% block body %}
+
+<div class="">
+  <form method="POST">
+    {% csrf_token %}
+    <table>
+      <tr>
+        <th><label for="id_title">Title:</label></th>
+        <td>
+          <input
+            type="text"
+            name="title"
+            maxlength="50"
+            value="{{res.title}}"
+            required
+            id="id_title"
+          />
+        </td>
+      </tr>
+      <tr>
+        <th><label for="id_adesc">Adesc:</label></th>
+        <td>
+          <textarea name="adesc" cols="40" rows="10" required id="id_adesc">
+            {{res.adesc}}</textarea
+          >
+        </td>
+      </tr>
+      <input type="submit" value="update" />
+    </table>
+  </form>
+</div>
+{% endblock %}

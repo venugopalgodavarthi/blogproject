@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8" />
+  <head>
+    <title>Register page</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style></style>
+  </head>
+  <body>
+    {% block body %}
+    <div class="">
+      <table border="2">
+        <tr>
+          <td>Title</td>
+          <td>Author Name</td>
+          <td>Publish date</td>
+          <td>link</td>
+        </tr>
+        {% for i in res %}
+        <tr>
+          <td>{{i.title}}</td>
+          <td>{{i.author}}</td>
+          <td>{{i.pdate}}</td>
+          <td>
+            <a href="{%url 'article:articleview' pk=i.id %}">article link </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+      <a href="{%url 'article:addarticle' %}">add article</a>
+    </div>
+    {% endblock %}
+  </body>
+</html>

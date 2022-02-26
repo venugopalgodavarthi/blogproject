@@ -1,0 +1,9 @@
+{% extends 'index.html'%} {% block body %}
+
+<div class="">
+  <form method="POST">
+    {% csrf_token %} {{form.as_p}}
+    <input type="submit" value="add article" />
+  </form>
+</div>
+{% endblock %}

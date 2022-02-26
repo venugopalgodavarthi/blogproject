@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8" />
+  <head>
+    <title>Register page</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style></style>
+  </head>
+  <body>
+    <div class="">
+      {% if user.is_authenticated %}
+      <h1>Haii. Mr/Ms {{user}}</h1>
+      <a href="{% url 'authe:logout' %}"><button>logout</button></a>
+      {% else %}
+      <h1>Haii. you are unknown user</h1>
+      <a href="{% url 'authe:login' %}"><button>login</button></a>
+      {% endif %}
+    </div>
+  </body>
+</html>

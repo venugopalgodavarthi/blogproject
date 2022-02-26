@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8" />
+  <head>
+    <title>Loginpage</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style></style>
+  </head>
+  <body>
+    <div class="">
+      <form method="POST">
+        {% csrf_token %} {{form.as_p}}
+        <input type="submit" value="login" />
+      </form>
+    </div>
+  </body>
+</html>

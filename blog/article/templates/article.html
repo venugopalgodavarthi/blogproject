@@ -1,0 +1,43 @@
+{% extends 'index.html'%} {% block body %}
+<div class="">
+  <table border="2">
+    <tr>
+      <td>Title</td>
+      <td>Author Name</td>
+      <td>Publish date</td>
+      <td>description</td>
+    </tr>
+    <tr>
+      <td>{{res.title}}</td>
+      <td>{{res.author}}</td>
+      <td>{{res.pdate}}</td>
+      <td>{{res.adesc}}</td>
+
+      {% if auth %}
+      <td><a href="{%url 'article:modifyarticle' pk=res.id %}">update</a></td>
+      <td><a href="{%url 'article:deletearticle' pk=res.id %}">delete</a></td>
+      {% endif %}
+    </tr>
+  </table>
+  <br />
+  <table border="2">
+    <tr>
+      <td>com name</td>
+      <td>Comment</td>
+      <td>date</td>
+    </tr>
+    {% for i in com %}
+    <tr>
+      <td>{{i.comname}}</td>
+      <td>{{i.content}}</td>
+      <td>{{i.cdate}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <form method="POST">
+    {% csrf_token %}
+    <input type="text" name="comment" id="comment_id" />
+    <input type="submit" value="comment" />
+  </form>
+</div>
+{% endblock %}
